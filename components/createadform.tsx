@@ -68,7 +68,7 @@ export default function Createadform() {
     // clear error field
     setError(null);
     setSuccess(null);
-    const userEmail: string = session?.user.email;
+    const userEmail: any | null = session.user.email;
 
     // Validations
     const validationResult: {
@@ -93,7 +93,7 @@ export default function Createadform() {
 
     setLoading(false);
     setSuccess("Ad successfully created");
-   // setFormData(initialState);
+    // setFormData(initialState);
   };
 
   return (

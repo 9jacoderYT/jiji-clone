@@ -5,10 +5,22 @@ export type FormData = {
   title: string;
   description: string;
   price: number | null;
-  userEmail: string;
   contactNumber: number | null;
   negotiable: boolean;
   images: Array<string>;
+};
+
+export type uploadData = {
+  category: string;
+  location: string;
+  youtube: string;
+  title: string;
+  userEmail: string;
+  description: string;
+  price: number | null;
+  contactNumber: number | null;
+  negotiable: boolean;
+  images: Array<any>;
 };
 
 export type adData = {

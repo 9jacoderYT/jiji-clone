@@ -1,4 +1,4 @@
-import { FormData } from "./types";
+import { adData, uploadData } from "./types";
 import { db, storage } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
@@ -14,7 +14,7 @@ export const createAd = async ({
   contactNumber,
   negotiable,
   images,
-}: FormData) => {
+}: uploadData) => {
   let imagesUrl: Array<string> = [];
 
   // Upload images and push them to the imagesUrl array
