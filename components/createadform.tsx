@@ -36,7 +36,7 @@ export default function Createadform() {
   const [formData, setFormData] = useState<FormData>(initialState);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-  const { data: session } = useSession();
+  const { data: session } = useSession<any | null | undefined>();
   const [loading, setLoading] = useState<boolean>(false);
 
   const filePickerRef = useRef(null);

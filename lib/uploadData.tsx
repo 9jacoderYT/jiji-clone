@@ -22,7 +22,7 @@ export const createAd = async ({
     //Put the image in the /userEmail/title/image
     const imageRef = ref(storage, `${userEmail}/${title}/${images[i].name}`);
 
-    const status = await uploadBytes(imageRef, images[i])
+    const status : any = await uploadBytes(imageRef, images[i])
       .then((snapshot) => {
         return snapshot;
       })
