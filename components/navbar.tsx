@@ -1,6 +1,6 @@
 "use client";
 
-import { signOut } from "next-auth/react";
+import { signOut, signIn } from "next-auth/react";
 
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import MessageIcon from "@mui/icons-material/Message";
@@ -96,7 +96,8 @@ export default function Navbar() {
             <a>Settings</a>
           </li>
           <li>
-            <button onClick={() => signOut()}>Log out</button>
+            {session.data && <button onClick={() => signOut()}>Log out</button>}
+            {!session.data && <button onClick={() => signIn()}>Sign In</button>}
           </li>
         </ul>
       </div>
