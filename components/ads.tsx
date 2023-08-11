@@ -48,17 +48,17 @@ export default function Ads(ad: adData) {
           <div className="bg-white p-5 text-sm">
             <div className="font-bold text-center">Safety tips</div>
             <ol>
-              <li>Don't pay in advance, including for delivery</li>
+              <li>Dont pay in advance, including for delivery</li>
 
               <li>Meet the seller at a safe public place</li>
 
-              <li>Inspect the item and ensure it's exactly what you want</li>
+              <li>Inspect the item and ensure its exactly what you want</li>
 
               <li>
                 On delivery, check that the item delivered is what was inspected
               </li>
 
-              <li>Only pay when you're satisfied</li>
+              <li>Only pay when youre satisfied</li>
             </ol>
           </div>
         </div>

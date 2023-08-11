@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default async function page({ params }: { params: { adID: string } }) {
   const adID = params.adID;
-  const ad = await fetchAd(adID);
+  const ad: any = await fetchAd(adID);
 
   return (
     <div className="max-w-5xl mx-auto">
@@ -64,7 +64,6 @@ export default async function page({ params }: { params: { adID: string } }) {
       </div>
 
       <Ads {...ad} />
-      
     </div>
   );
 }

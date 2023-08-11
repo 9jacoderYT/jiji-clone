@@ -8,7 +8,7 @@ import Link from "next/link";
 import { deleteDocById } from "@/lib/deleteData";
 import { useRouter } from "next/navigation";
 
-export default function UserAds(data: adData) {
+export default function UserAds(data: any) {
   const router = useRouter();
   const ad = data.data;
 

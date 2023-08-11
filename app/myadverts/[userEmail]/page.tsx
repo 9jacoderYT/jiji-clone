@@ -8,11 +8,12 @@ export default async function page({
 }) {
   const userEmail = params.userEmail;
   const ads = await fetchUserAds(decodeURIComponent(userEmail));
-  
+
+  console.log(ads);
 
   return (
     <div className="max-w-5xl mx-auto">
-      {ads?.map((ad) => (
+      {ads?.map((ad: any) => (
         <UserAds data={ad} key={ad.id} />
       ))}
     </div>

@@ -13,7 +13,7 @@ import {
   InputLabel,
   OutlinedInput,
 } from "@mui/material";
-import { useRef, useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import { formValidate } from "@/lib/validations";
 import { FormData } from "@/lib/types";
 
@@ -36,12 +36,14 @@ export default function Createadform() {
   const [formData, setFormData] = useState<FormData>(initialState);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
-  const { data: session } = useSession<any | null | undefined>();
+  const session: any = useSession<any | null | undefined>();
   const [loading, setLoading] = useState<boolean>(false);
 
-  const filePickerRef = useRef(null);
+  const filePickerRef: MutableRefObject<any | null> = useRef<any | null>(null);
 
-  const addImageToPost = (files: any[]) => {
+  const selectImg = () => {};
+
+  const addImageToPost = ({ files }: any) => {
     if (files.length > 10) {
       setError("Please upload maximum of 10 files");
       return;
@@ -68,7 +70,7 @@ export default function Createadform() {
     // clear error field
     setError(null);
     setSuccess(null);
-    const userEmail: any | null = session.user.email;
+    const userEmail = session.data.user.email;
 
     // Validations
     const validationResult: {
@@ -93,7 +95,7 @@ export default function Createadform() {
 
     setLoading(false);
     setSuccess("Ad successfully created");
-    // setFormData(initialState);
+    setFormData(initialState);
   };
 
   return (
@@ -160,7 +162,9 @@ export default function Createadform() {
             </div>
             <span
               className="py-2 flex space-x-3"
-              onClick={() => filePickerRef.current.click()}
+              onClick={() => {
+                filePickerRef.current?.click();
+              }}
             >
               <input
                 type="file"
@@ -171,8 +175,8 @@ export default function Createadform() {
               />
               <AddBoxIcon className="my-auto hover:cursor-pointer" />
 
-              {formData?.images.map((image) => (
-                <span key={image.id}>
+              {formData?.images.map((image: any, index: number) => (
+                <span key={index}>
                   <img
                     src={URL.createObjectURL(image)}
                     className="w-12 h-12"

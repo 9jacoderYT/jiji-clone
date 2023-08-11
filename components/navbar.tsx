@@ -17,12 +17,9 @@ export default function Navbar() {
   const pathname = usePathname();
 
   // Help check if the user is logged in and help redirect if they are not
-  const { data: session } = useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect(`/api/auth/signin?callbackUrl=${pathname}`);
-    },
-  });
+  const session: any = useSession<any | null | undefined>();
+
+  console.log(session);
 
   return (
     <div className="flex py-1 space-x-3 mx-auto max-w-6xl">
@@ -65,14 +62,14 @@ export default function Navbar() {
       <div
         className="p-[5px] rounded-full bg-white tooltip tooltip-bottom hover:cursor-pointer"
         data-tip="My Adverts"
-        onClick={() => router.push(`/myadverts/${session.user.email}`)}
+        onClick={() => router.push(`/myadverts/${session.data?.user.email}`)}
       >
         <ViewListIcon />
       </div>
 
       <div className="dropdown dropdown-hover my-auto dropdown-bottom dropdown-end">
         <img
-          src={session?.user.image}
+          src={session.data?.user.image}
           className="rounded-full w-8"
           alt="logo"
         />

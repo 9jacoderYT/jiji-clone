@@ -1,6 +1,5 @@
 import AllAds from "@/components/AllAds";
 import Header from "@/components/header";
-import LatestAds from "@/components/latest_ads";
 import Menu from "@/components/menu";
 import Slider from "@/components/slider";
 import { fetchAllAds } from "@/lib/fetchData";
