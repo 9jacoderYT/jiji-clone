@@ -69,7 +69,7 @@ export default function Navbar() {
 
       <div className="dropdown dropdown-hover my-auto dropdown-bottom dropdown-end">
         <img
-          src={session.data?.user.image}
+          src={session.data?.user.image || "/logo.jpeg"}
           className="rounded-full w-8"
           alt="logo"
         />
