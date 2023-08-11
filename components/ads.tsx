@@ -31,8 +31,8 @@ export default function Ads(ad: adData) {
             <div className="divider"></div>
 
             <div className="flex space-x-5">
-              {ad.imagesUrl.map((image: string) => (
-                <span key={image.id}>
+              {ad.imagesUrl.map((image: string, index: number) => (
+                <span key={index}>
                   <img
                     src={image}
                     className="w-[100px] h-[100px]"
