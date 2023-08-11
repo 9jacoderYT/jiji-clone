@@ -1,11 +1,11 @@
 "use client";
 import { NGnaira } from "@/lib/help";
-import { adData } from "@/lib/types";
+import { adData, uploadData } from "@/lib/types";
 import Link from "next/link";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
 import { useEffect } from "react";
 
-export default function AllAds({ ads }: adData) {
+export default function AllAds({ ads }: any) {
   const handleError = () => {
     if (ads.length === 0) {
       throw new Error();
@@ -17,7 +17,7 @@ export default function AllAds({ ads }: adData) {
 
   return (
     <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-      {ads?.map((ad) => (
+      {ads?.map((ad: any) => (
         <>
           <div className="bg-white m-2">
             <img
